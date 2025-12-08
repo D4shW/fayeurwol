@@ -1,7 +1,5 @@
 #configurator.py
 
-# configurator.py
-
 from typing import List, Dict, Any
 from .core import Firewall, TerminalRule
 from .decorators import LoggerDecorator, BanDecorator
@@ -10,8 +8,8 @@ from .interfaces import Rule
 
 class FirewallConfigurator:
     """
-    Charge et applique une configuration de règles au Firewall (Singleton).
-    Peut être alimenté par un fichier JSON/YAML, ou une structure Python.
+    Charge et applique une configuration de regles au Firewall (Singleton)
+    Peut etre alimenté par un fichier JSON/YAML, ou une structure Python
     """
 
     DECORATOR_MAP = {
@@ -28,8 +26,8 @@ class FirewallConfigurator:
 
     def load_config(self, config: List[Dict[str, Any]]):
         """
-        Recharge entièrement la configuration du firewall.
-        :param config: Liste de dictionnaires décrivant des règles
+        Recharge entierement la configuration du firewall.
+        :param config: Liste de dictionnaires decrivant des règles
         """
         self.firewall.clear_rules()
 
@@ -39,7 +37,7 @@ class FirewallConfigurator:
 
     def _build_rule(self, rule_def: Dict[str, Any]) -> Rule:
         """
-        Construit une règle selon une définition :
+        Construit une regle selon une definition :
         {
             "type": "terminal",
             "action": "allow",
@@ -68,7 +66,7 @@ class FirewallConfigurator:
         return rule
 
     def print_config(self):
-        """Debug : Affiche les règles actuelles."""
+        """Debug : Affiche les regles actuelles."""
         print("=== FIREWALL CONFIG ===")
         for r in self.firewall.rules:
             print(f"- {r}")
