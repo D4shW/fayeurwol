@@ -33,6 +33,22 @@ RuleEngine : Compare les paquets aux règles définies.
 
 FirewallCore : Orchestre le flux de données.
 
+### Structure du Projet :
+```
+firewall_project/
+│
+├── main.py                  # Point d'entrée (Simulation)
+├── README.md
+│
+└── src/
+    ├── __init__.py
+    ├── domain.py            # Contient la classe Packet
+    ├── interfaces.py        # Contient la classe abstraite Rule
+    ├── core.py              # Contient Firewall (Singleton) et TerminalRule
+    ├── decorators.py        # Contient RuleDecorator et ses implémentations (Logger, Ban...)
+    └── configurator.py      # Contient FirewallConfigurator
+```
+
 ### Installation :
 Cloner le dépôt : 
 
